@@ -1,0 +1,13 @@
+---
+- hosts: localhost
+  become: yes 
+  tasks:
+    - name: install software
+      apt: 
+        name: elinks
+        state: latest 
+    - name: install Network Utilities
+      apt:  
+        name: netcat
+        state: latest
+
