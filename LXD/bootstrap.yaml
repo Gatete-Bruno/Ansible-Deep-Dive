@@ -6,22 +6,36 @@
       lineinfile:
         path: /etc/hosts
         line: "ansible.xyzcorp.com 169.168.0.1"
+      tags: 
+        - software
+
     - name: install elinks
       package:
         name: elinks
         state: latest
+      tags: 
+        - elinks
+
     - name: create audit user
       user:
         name: xyzcorp_audit
         state: present
+      tags: 
+        - audit 
+
     - name: update motd
       copy:
         src: /home/ansible/motd
         dest: /etc/motd
+      tags:
+        - motd 
+
     - name: update issue
       copy:
         src: /home/ansible/issue
         dest: /etc/issue
+      tags: 
+        - issue
 
 
 - hosts: network
@@ -31,6 +45,8 @@
        yum:
          name: nmap-ncat
          state: latest
+     
+
      - name: create network user
        user:
          name: xyzcorp_network
