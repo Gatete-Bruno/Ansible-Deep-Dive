@@ -1,0 +1,11 @@
+working_dir: /home/gatete/Desktop/ansible/Ansible-Deep-Dive/LXD
+
+service_list:
+- httpd 
+- nfs 
+- mariadb
+
+share_paths:
+  nfs: /mnt/nfs 
+  cifs: /mnt/cifs
+  iscsi: /mnt/iscsi
