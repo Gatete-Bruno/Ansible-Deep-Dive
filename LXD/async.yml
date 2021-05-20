@@ -1,0 +1,7 @@
+--- 
+- hosts: localhost
+  tasks: 
+    - name: Run ansible.sh
+      command: /home/gatete/Desktop/ansible/Ansible-Deep-Dive/LXD
+      async: 60
+      poll: 10
