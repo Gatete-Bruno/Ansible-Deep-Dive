@@ -11,6 +11,14 @@
      notify: httpd service 
      tags: 
        - base-install
+
+   - name: run data job
+     command: /opt/data-job.sh
+     async: 600
+     poll: 0
+     tags:
+       - data-job
+
   handlers:
     - name: Restart and enable httpd
       services:
