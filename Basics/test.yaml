@@ -1,6 +1,6 @@
 ---
   
-- hosts: gui
+- hosts: wbsrvs
   become: yes
   tasks:
     - name: do a uname
