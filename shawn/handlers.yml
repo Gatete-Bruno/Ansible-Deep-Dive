@@ -1,0 +1,24 @@
+---
+- hosts: apps
+  become: yes
+  tasks: 
+    - name: Install vsftpd on App machines
+      yum: name=vsftpd update_cache=yes state=latest
+      ignore_errors: yes 
+      notify: start vsftpd
+
+
+- hosts: ldb
+  become: yes
+  tasks: 
+    - name: Install vsftpd on Loadbalancers
+      yum: name=vsftpd update_cache=yes state=latest
+      ignore_errors: yes 
+      notify: start vsftpd
+
+
+
+
+  handlers: 
+    - name: start vsftpd
+      service: name=vsftpd enabled=yes state=started
