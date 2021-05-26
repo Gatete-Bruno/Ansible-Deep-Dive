@@ -1,0 +1,12 @@
+---
+  
+- hosts: ldb 
+  become: yes
+
+  tasks:
+   - name: install stuff
+     yum: name={{ item }} update_cache=yes state=latest
+     with_items:
+      - vim
+      - nano
+      - httpd
