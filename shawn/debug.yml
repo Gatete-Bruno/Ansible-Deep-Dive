@@ -1,0 +1,8 @@
+---
+- hosts: apps
+  vars: 
+    - var_thing: "Food is food"
+
+  tasks:
+    - name:  show results 
+      debug: msg="the variable var_thing is set to - {{ var_thing }}"
