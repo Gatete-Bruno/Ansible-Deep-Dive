@@ -1,19 +1,18 @@
 ---
-- hosts: apps
+- hosts: apps ldb
   become: yes
 
   tasks: 
 
     - name: install apache2
       apt: name=apache2 state=latest
-      ignore_errors: yes
-      register: results
-
-      
+      when: ansible_os_family == "Debian"
+ 
 
     - name: install httpd
       yum: name=httpd state=latest
       when: results|failed
+      when: ansible_os_family == "RedHat"
 
-      
+
       
