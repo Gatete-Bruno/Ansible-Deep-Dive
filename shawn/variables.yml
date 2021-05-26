@@ -1,0 +1,9 @@
+---
+- hosts: apps 
+  vars: 
+  - var1: cool stuff here
+  - var2: cool stuff there
+
+  tasks: 
+    - name: echo stuff
+      shell: echo "{{ var 1 }} is var1, but var 2 is {{ var 2 }}" > /home/app2/file.txt
