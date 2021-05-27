@@ -1,6 +1,6 @@
 ---
   
-- hosts: ldb 
+- hosts: ldb apps
   become: yes
 
   tasks:
