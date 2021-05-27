@@ -1,12 +1,13 @@
----
-- hosts: apps ldb 
-  become: yes
-  vars:
-    file_version: 1.0
-  
+--- 
+- 
+  become: true
+  hosts: "apps ldb"
   tasks: 
-    - name: Install index
-      template:
-      src: index.html.j2
+    - 
       dest: /var/www/html/index.html
-      mode: 0777
+      mode: 511
+      name: "install index"
+      src: index.html.j2
+      template: ~
+  vars: 
+    file_version: 1.0
